@@ -1,7 +1,9 @@
 {
     "name": "go-npm-example-pepyaka",
     "version": "0.0.2-alpha.2",
-    "main": "index.js",
+    "files": [
+        "package.json"
+    ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
     "devDependencies": {
