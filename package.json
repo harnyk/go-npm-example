@@ -11,15 +11,10 @@
         "pepyaka": "./bin/pepyaka"
     },
     "scripts": {
-        "postinstall": "go-npm install",
-        "preuninstall": "go-npm uninstall"
+        "postinstall": "./install.js"
     },
-    "goBinary": {
-        "name": "pepyaka",
-        "path": "./bin",
-        "url": "https://github.com/harnyk/go-npm-example/releases/download/v{{version}}/pepyaka_{{version}}_{{platform}}_{{arch}}.tar.gz"
-    },
+    "binaryUrl": "https://github.com/harnyk/go-npm-example/releases/download/v{{version}}/pepyaka_{{version}}_{{platform}}_{{arch}}.tar.gz",
     "dependencies": {
-        "@gzuidhof/go-npm": "^0.1.13"
+        "download": "^8.0.0"
     }
 }
