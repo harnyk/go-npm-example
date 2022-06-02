@@ -1,6 +1,6 @@
 {
     "name": "go-npm-example-pepyaka",
-    "version": "0.0.2-alpha.10",
+    "version": "0.0.2-alpha.11",
     "files": [
         "package.json",
         "install.js"
