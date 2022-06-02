@@ -1,3 +1,4 @@
+project_name: pepyaka
 builds:
   - binary: pepyaka
     main: ./cli/main.go

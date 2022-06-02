@@ -1,0 +1,14 @@
+{
+    "name": "pepyaka",
+    "version": "0.0.1",
+    "main": "index.js",
+    "author": "Mark <markh@sweepbright.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "go-npm": "^0.1.9"
+    },
+    "scripts": {
+        "postinstall": "go-npm install",
+        "preuninstall": "go-npm uninstall"
+    }
+}
