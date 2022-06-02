@@ -6,9 +6,7 @@
     ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
-    "devDependencies": {
-        "go-npm": "^0.1.9"
-    },
+    "devDependencies": {},
     "scripts": {
         "postinstall": "go-npm install",
         "preuninstall": "go-npm uninstall"
@@ -17,5 +15,8 @@
         "name": "pepyaka",
         "path": "./bin",
         "url": "https://github.com/harnyk/go-npm-example/releases/download/v{{version}}/pepyaka_{{version}}_{{platform}}_{{arch}}.tar.gz"
+    },
+    "dependencies": {
+        "go-npm": "^0.1.9"
     }
 }
