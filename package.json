@@ -2,7 +2,8 @@
     "name": "go-npm-example-pepyaka",
     "version": "0.0.2-alpha.7",
     "files": [
-        "package.json"
+        "package.json",
+        "install.js"
     ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
