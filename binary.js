@@ -34,11 +34,23 @@ const getPlatform = () =>
         aix: 'aix',
     }[os.platform()]);
 
-const getBinPath = () =>
-    cp
-        .execSync(`npm bin ${isInstalledGlobally ? '-g' : ''}`)
-        .toString()
-        .trim();
+const getBinPath = () => {
+    if (isInstalledGlobally) {
+        return cp.execSync('npm bin -g').toString().trim();
+    } else {
+        const npmRoot = cp.execSync('npm root').toString().trim();
+        //trim npmRoot until the first node_modules folder
+        const nodeModulesIndex = npmRoot.indexOf('node_modules');
+        if (nodeModulesIndex === -1) {
+            throw new Error('Unable to determine npm root');
+        }
+        return join(
+            npmRoot.substring(0, nodeModulesIndex),
+            'node_modules',
+            '.bin'
+        );
+    }
+};
 
 const getMetadata = () => {
     const binName = pkg.binary.name;
