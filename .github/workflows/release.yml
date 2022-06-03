@@ -31,8 +31,8 @@ jobs:
       - name: Install Node dependencies
         run: yarn
 
-      - name: Remove Binaries
-        run: rm -rf ./bin
+      - name: Build the downloader
+        run: yarn build
 
       - name: Publish to NPM
         run: |

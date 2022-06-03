@@ -3,21 +3,23 @@
     "version": "0.0.2-alpha.17",
     "files": [
         "package.json",
-        "binary.js"
+        "scripts/build.js"
     ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
-    "devDependencies": {},
+    "devDependencies": {
+        "download": "^8.0.0",
+        "esbuild": "^0.14.42",
+        "is-installed-globally": "^0.4.0"
+    },
     "scripts": {
         "install": "node binary.js install",
-        "uninstall": "node binary.js uninstall"
+        "uninstall": "node binary.js uninstall",
+        "build": "esbuild binary.js --bundle --platform=node --target=node14 --external:electron --minify --outdir=script"
     },
     "binary": {
         "name": "pepyaka",
         "url": "https://github.com/harnyk/go-npm-example/releases/download/v{version}/{name}_{version}_{platform}_{arch}.tar.gz"
     },
-    "dependencies": {
-        "download": "^8.0.0",
-        "is-installed-globally": "^0.4.0"
-    }
+    "dependencies": {}
 }
