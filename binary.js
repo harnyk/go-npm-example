@@ -78,7 +78,16 @@ const uninstall = () => {
     const { binFileName, binPath } = getMetadata();
     const binFilePath = join(binPath, binFileName);
     console.log(`Removing ${binFilePath}`);
-    unlinkSync(binFilePath);
+    try {
+        unlinkSync(binFilePath);
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            console.log(`${binFilePath} does not exist`);
+        } else {
+            throw e;
+        }
+    }
+
     console.log(`${binFileName} is removed`);
 };
 
