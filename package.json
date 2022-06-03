@@ -3,15 +3,18 @@
     "version": "0.0.2-alpha.13",
     "files": [
         "package.json",
-        "install.js"
+        "binary.js"
     ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
     "devDependencies": {},
     "scripts": {
-        "install": "node install.js"
+        "install": "node binary.js install"
     },
-    "binaryUrl": "https://github.com/harnyk/go-npm-example/releases/download/v{{version}}/pepyaka_{{version}}_{{platform}}_{{arch}}.tar.gz",
+    "binary": {
+        "name": "pepyaka",
+        "url": "https://github.com/harnyk/go-npm-example/releases/download/v{version}/{name}_{version}_{platform}_{arch}.tar.gz"
+    },
     "dependencies": {
         "download": "^8.0.0",
         "is-installed-globally": "^0.4.0"

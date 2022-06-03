@@ -1,11 +1,13 @@
 #!/usr/bin/env node
+//@ts-check
 
 const os = require('os');
 const download = require('download');
 const cp = require('child_process');
 const isInstalledGlobally = require('is-installed-globally');
-const { copyFileSync, chmodSync } = require('fs');
+const { copyFileSync, chmodSync, unlinkSync } = require('fs');
 const { join } = require('path');
+const pkg = require('./package.json');
 
 const getArch = () =>
     ({
@@ -38,16 +40,30 @@ const getBinPath = () =>
         .toString()
         .trim();
 
-const main = async () => {
-    const binName = 'pepyaka';
-    const version = require('./package.json').version;
+const getMetadata = () => {
+    const binName = pkg.binary.name;
+    const version = pkg.version;
     const arch = getArch();
     const platform = getPlatform();
-    const url = `https://github.com/harnyk/go-npm-example/releases/download/v${version}/${binName}_${version}_${platform}_${arch}.tar.gz`;
-    const binFileName = `${binName}${platform === 'windows' ? '.exe' : ''}`;
-    const binPath = getBinPath();
-    const downloadPath = join(__dirname, 'bin');
+    const url = pkg.binary.url
+        .replace(/\{version\}/g, version)
+        .replace(/\{platform\}/g, platform)
+        .replace(/\{arch\}/g, arch)
+        .replace(/\{name\}/g, binName);
 
+    return {
+        version,
+        arch,
+        platform,
+        url,
+        binFileName: `${binName}${platform === 'windows' ? '.exe' : ''}`,
+        binPath: getBinPath(),
+        downloadPath: join(__dirname, 'bin'),
+    };
+};
+
+const install = async () => {
+    const { platform, url, binFileName, binPath, downloadPath } = getMetadata();
     console.log(`Downloading ${url}`);
     await download(url, downloadPath, { extract: true });
     console.log(`Copying to ${binPath}`);
@@ -56,6 +72,25 @@ const main = async () => {
         chmodSync(join(binPath, binFileName), 0o755);
     }
     console.log(`${binFileName} is installed`);
+};
+
+const uninstall = () => {
+    const { binFileName, binPath } = getMetadata();
+    const binFilePath = join(binPath, binFileName);
+    console.log(`Removing ${binFilePath}`);
+    unlinkSync(binFilePath);
+    console.log(`${binFileName} is removed`);
+};
+
+const main = async () => {
+    const command = process.argv[2];
+    if (command === 'install') {
+        await install();
+    } else if (command === 'uninstall') {
+        uninstall();
+    } else {
+        console.log(`Usage: node binary.js [install|uninstall]`);
+    }
 };
 
 main().catch((e) => {
