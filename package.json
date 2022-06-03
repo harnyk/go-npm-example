@@ -3,7 +3,7 @@
     "version": "0.0.2-alpha.18",
     "files": [
         "package.json",
-        "scripts/build.js"
+        "script/build.js"
     ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
@@ -13,8 +13,8 @@
         "is-installed-globally": "^0.4.0"
     },
     "scripts": {
-        "install": "node binary.js install",
-        "uninstall": "node binary.js uninstall",
+        "install": "node ./script/binary.js install",
+        "uninstall": "node ./script/binary.js uninstall",
         "build": "esbuild binary.js --bundle --platform=node --target=node14 --external:electron --minify --outdir=script"
     },
     "binary": {
