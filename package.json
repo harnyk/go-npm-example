@@ -9,7 +9,8 @@
     "license": "MIT",
     "devDependencies": {},
     "scripts": {
-        "install": "node binary.js install"
+        "install": "node binary.js install",
+        "uninstall": "node binary.js uninstall"
     },
     "binary": {
         "name": "pepyaka",
