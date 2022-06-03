@@ -8,14 +8,12 @@
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
     "devDependencies": {},
-    "bin": {
-        "pepyaka": "./bin/pepyaka"
-    },
     "scripts": {
         "install": "node install.js"
     },
     "binaryUrl": "https://github.com/harnyk/go-npm-example/releases/download/v{{version}}/pepyaka_{{version}}_{{platform}}_{{arch}}.tar.gz",
     "dependencies": {
-        "download": "^8.0.0"
+        "download": "^8.0.0",
+        "is-installed-globally": "^0.4.0"
     }
 }
