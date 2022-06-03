@@ -3,7 +3,7 @@
     "version": "0.0.2-alpha.20",
     "files": [
         "package.json",
-        "script/build.js"
+        "script/binary.js"
     ],
     "author": "Mark <markh@sweepbright.com>",
     "license": "MIT",
