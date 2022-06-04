@@ -31,9 +31,6 @@ jobs:
       - name: Install Node dependencies
         run: yarn --ignore-scripts
 
-      - name: Build the downloader
-        run: yarn build
-
       - name: Publish to NPM
         run: |
           npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
