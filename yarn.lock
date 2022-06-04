@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-goforblob@^0.0.2-alpha.1:
-  version "0.0.2-alpha.1"
-  resolved "https://registry.yarnpkg.com/goforblob/-/goforblob-0.0.2-alpha.1.tgz#047ad027123776de9892aa838048a3fc46e1056f"
-  integrity sha512-bYsOUtj7FVUoAud0/IKM8p93FLLswYqz6pKac/RHNYSLgbcv3VlAdR0vLlT9+go9VMbHI6rLYhgKHrEmPUTzEQ==
+goforblob@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/goforblob/-/goforblob-0.0.2.tgz#67cd9004d81c650db2fb84c38c7397f2bf52ff25"
+  integrity sha512-l+wFvdX6nyuq0Ncnsr/+aLeHMvk32TOvNGhv46RYVy6mhKN54ufl7oV92a260C6RbcZJe5aR6+9VgFJT6lv31g==

@@ -12,7 +12,7 @@
     "uninstall": "goforblob uninstall"
   },
   "dependencies": {
-    "goforblob": "^0.0.2-alpha.1"
+    "goforblob": "^0.0.2"
   },
   "goforblob": {
     "name": "pepyaka",
