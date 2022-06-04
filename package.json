@@ -1,25 +1,21 @@
 {
-    "name": "go-npm-example-pepyaka",
-    "version": "0.0.2-alpha.21",
-    "files": [
-        "package.json",
-        "script/binary.js"
-    ],
-    "author": "Mark <markh@sweepbright.com>",
-    "license": "MIT",
-    "devDependencies": {
-        "download": "^8.0.0",
-        "esbuild": "^0.14.42",
-        "is-installed-globally": "^0.4.0"
-    },
-    "scripts": {
-        "install": "node ./script/binary.js install",
-        "uninstall": "node ./script/binary.js uninstall",
-        "build": "esbuild binary.js --bundle --platform=node --target=node14 --external:electron --minify --outdir=script"
-    },
-    "binary": {
-        "name": "pepyaka",
-        "url": "https://github.com/harnyk/go-npm-example/releases/download/v{version}/{name}_{version}_{platform}_{arch}.tar.gz"
-    },
-    "dependencies": {}
+  "name": "go-npm-example-pepyaka",
+  "version": "0.0.2-alpha.21",
+  "license": "MIT",
+  "author": "Mark <markh@sweepbright.com>",
+  "files": [
+    "package.json",
+    "script/binary.js"
+  ],
+  "scripts": {
+    "install": "goforblob install",
+    "uninstall": "goforblob uninstall"
+  },
+  "dependencies": {
+    "goforblob": "^0.0.2-alpha.1"
+  },
+  "goforblob": {
+    "name": "pepyaka",
+    "url": "https://github.com/harnyk/go-npm-example/releases/download/v{version}/{name}_{version}_{platform}_{arch}.tar.gz"
+  }
 }
